@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Go Button</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .go-button {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .go-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.3);
+            background: linear-gradient(45deg, #45a049, #4CAF50);
+        }
+
+        .go-button:active {
+            transform: translateY(0px) scale(0.98);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .go-button.clicked {
+            animation: pulse 0.6s ease-in-out;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                background: linear-gradient(45deg, #4CAF50, #45a049);
+            }
+            50% {
+                transform: scale(1.1);
+                background: linear-gradient(45deg, #ff6b6b, #ff5252);
+                box-shadow: 0 0 20px rgba(255, 107, 107, 0.7);
+            }
+            100% {
+                transform: scale(1);
+                background: linear-gradient(45deg, #4CAF50, #45a049);
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="go-button" onclick="animateButton(this)">Go</button>
+
+    <script>
+        function animateButton(button) {
+            // Add the clicked animation class
+            button.classList.add('clicked');
+            
+            // Change the button text temporarily
+            const originalText = button.textContent;
+            button.textContent = 'GO!';
+            
+            // Remove the animation class after animation completes
+            setTimeout(() => {
+                button.classList.remove('clicked');
+                button.textContent = originalText;
+            }, 600);
+            
+            // Add your actual button functionality here
+            console.log('Go button clicked!');
+            // Example: redirect to another page
+            // window.location.href = 'https://example.com';
+        }
+
+        // Optional: Add keyboard support
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                const button = document.querySelector('.go-button');
+                animateButton(button);
+            }
+        });
+    </script>
+</body>
+</html>

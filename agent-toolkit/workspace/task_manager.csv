@@ -1,0 +1,4 @@
+Task ID,Task Name,Description,Priority,Status,Due Date,Assigned To,Category,Created Date,Completed Date,Notes
+1,Sample Task 1,This is an example task to get you started,High,In Progress,2024-01-15,Me,Work,2024-01-01,,Remember to follow up
+2,Sample Task 2,Another example task,Medium,Not Started,2024-01-20,Me,Personal,2024-01-02,,
+3,Sample Task 3,Completed example,Low,Completed,2024-01-10,Me,Work,2023-12-28,2024-01-08,Finished ahead of schedule
