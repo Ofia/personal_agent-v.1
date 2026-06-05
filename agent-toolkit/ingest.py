@@ -40,3 +40,4 @@ def extract_docx(path: Path) -> str:
         p.text for p in doc.paragraphs
         if p.text.strip()                              # skip empty paragraphs
     )
+

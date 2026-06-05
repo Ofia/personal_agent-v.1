@@ -370,7 +370,8 @@ MODEL = SentenceTransformer("all-MiniLM-L6-v2")   # load the embedding model. ru
                                                     # converts text → list of 384 numbers (a vector)
 
 DB = chromadb.PersistentClient(path="./chroma_db") # PersistentClient = save data to disk (not just in memory)
-collection = DB.get_or_create_collection("my_data")# collection = named group of vectors — like a table in a database
+
+# collection = named group of vectors — like a table in a database
 
 # ── extractors — one function per file type ───────────────────────────────────
 
@@ -393,7 +394,7 @@ def extract_pdf(path: Path) -> str:
 
     return text
 
-def extract_docx(path: Path) -> str:
+def extract_docx(path: Path) -> str:            IM HERE!!
     doc = DocxDocument(str(path))                      # open the Word document
     return "\n".join(                                  # join all paragraphs into one string
         p.text for p in doc.paragraphs                 # iterate over every paragraph in the doc
